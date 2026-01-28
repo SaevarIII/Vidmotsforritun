@@ -12,35 +12,61 @@ public class KmGjaldController {
     private TextField fxFlokkur;
     @FXML
     private Label fxKmGjald;
+    @FXML
+    private Label fxManGjald;
+    @FXML
+    private Label fxManKm;
+    @FXML
+    private Label fxUpphaf;
+
 
     @FXML
-    private void onFlokkur(ActionEvent event){
+    private void onFlokkur(ActionEvent event) {
         String flokkur = fxFlokkur.getText().trim().toUpperCase();
         double gjald = 0;
 
-        if(flokkur.equals("A") || flokkur.equals("C")) {
-            gjald = 6.95;
-            fxKmGjald.setText(String.valueOf(gjald));
+
+            if (flokkur.equals("A") || flokkur.equals("C")) {
+                gjald = 6.95;
+                fxKmGjald.setText(String.valueOf(gjald));
+            } else if (flokkur.equals("B")) {
+                gjald = 4.15;
+                fxKmGjald.setText(String.valueOf(gjald));
+            }
+            else{
+                fxKmGjald.setText("Villa. Reyndu aftur");
+            }
         }
-        else if (flokkur.equals("B")) {
-    gjald = 4.15;
-    fxKmGjald.setText(String.valueOf(gjald));
+
+
+
+    @FXML
+    void onUpphaf(ActionEvent event){
+
     }
-        else{
-            fxKmGjald.setText("Villa, reyndu aftur");
-        }
+
+    @FXML
+    void onLoka(ActionEvent event){
+
+
     }
-    @FXML
-    void onUpphaf(ActionEvent event){}
 
     @FXML
-    void onLoka(ActionEvent event){}
+    void onHreinsa(ActionEvent event){
+        fxKmGjald.setText("");
+        fxManKm.setText("");
+        fxManGjald.setText("");
+        fxUpphaf.setText("");
+
+
+
+    }
 
     @FXML
-    void onHreinsa(ActionEvent event){}
+    void onSkraKmStodu(ActionEvent event){
 
-    @FXML
-    void onSkraKmStodu(ActionEvent event){}
+
+    }
 }
 
 
