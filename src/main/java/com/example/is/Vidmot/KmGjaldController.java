@@ -43,12 +43,6 @@ public class KmGjaldController {
         fxKmGjald.setText(String.valueOf(vinnsla.getGjaldKilometra(flokkur)));
     }
 
-
-
-
-
-
-
     @FXML
     void onUpphaf(ActionEvent event){
 
