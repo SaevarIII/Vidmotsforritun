@@ -24,13 +24,20 @@ public class KmGjaldController {
     @FXML
     private Label fxHeildKm;
 
+    @FXML
+    private Label fxHeildGjald;
+    @FXML private Label fxFjManada;
+
+
 
 
     @FXML
     private void onFlokkur(ActionEvent event) {
+        fxKmGjald.setStyle("-fx-text-fill: black;");
         String flokkur = fxFlokkur.getText().trim().toUpperCase();
         if (!vinnsla.erLoglegt(flokkur)) {
             fxKmGjald.setText("Villa. Reyndu aftur");
+            fxKmGjald.setStyle("-fx-text-fill: red;");
             return;
         }
         fxKmGjald.setText(String.valueOf(vinnsla.getGjaldKilometra(flokkur)));
@@ -79,10 +86,15 @@ public class KmGjaldController {
                 return;
 
             }
+            int manGjald = vinnsla.reiknaManGjald(km, flokkur);
             vinnsla.skraManud(upphaf, lok, flokkur);
             fxManKm.setText(String.valueOf(km));
-            fxManGjald.setText(String.valueOf(vinnsla.reiknaManGjald(km, flokkur)));
+
+            fxManGjald.setText(String.valueOf(manGjald));
             fxHeildKm.setText(String.valueOf(vinnsla.getHeildEknirKm()));
+            fxHeildGjald.setText(String.valueOf(vinnsla.getHeildarGreidsla()));
+            fxFjManada.setText(String.valueOf(vinnsla.getFjoldiManada()));
+
         }
         catch (NumberFormatException e) {
             fxManKm.setText("Villa. Reyndu aftur");
